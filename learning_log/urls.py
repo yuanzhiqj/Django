@@ -18,10 +18,14 @@ from django.contrib import admin
  
 urlpatterns = [
     #url(r'^admin/', include(admin.site.urls)), 
-    url(r'^admin/', admin.site.urls),# 不用include()函数,a
+    url(r'^admin/', admin.site.urls),# 不用include()函数,
     # url(r'^admin/', include(admin.site.urls)), 
     #url(r'', include(('learning_logs.urls'), namespace='learning_logs')),
-    url(r'', include('learning_logs.urls')), # 或者修改为include(pattern_list)这种用法也是可以的！！！,a
+    #url(r'^users/',include('users.urls',namespace='user')),
+    url(r'^users/', include(('users.urls', 'users'), namespace='users')),
+    #url(r'^users/',include('users.urls')),
+    url(r'', include('learning_logs.urls')), # 或者修改为include(pattern_list)这种用法也是可以的！！！
     #path('admin/', admin.site.urls),
     #path('', include('learning_logs.urls')),
+    
 ]
